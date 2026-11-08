@@ -40,6 +40,8 @@
 #include <openssl/pem.h>
 #include <openssl/err.h>
 
+#include <psp2/kernel/threadmgr.h>
+
 #include "../src/debug.h"
 
 #define UNIQUE_FILE_NAME "uniqueid.dat"
@@ -565,7 +567,7 @@ int gs_pair(PSERVER_DATA server, char* pin) {
   char client_secret_data[16];
   RAND_bytes(client_secret_data, sizeof(client_secret_data));
 
-  const ASN1_BIT_STRING *asnSignature;
+  ASN1_BIT_STRING *asnSignature;
   X509_get0_signature(&asnSignature, NULL, cert);
 
   char challenge_response[16 + SIGNATURE_LEN + sizeof(client_secret_data)];

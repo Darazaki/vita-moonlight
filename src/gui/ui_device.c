@@ -36,6 +36,8 @@
 #define MILLISECOND 1000
 #define SECOND      (1000 * MILLISECOND)
 
+int end_search_thread(SceUID thid);
+
 enum {
   DEVICE_EXIT_SEARCH = 100,
   DEVICE_ITEM,
@@ -159,9 +161,6 @@ SceUID start_search_thread() {
   vita_debug_log("[mDNS] Hilo de búsqueda iniciado: thid=%d\n", thid);
   return thid;
 }
-
-// Prototipo adelantado para evitar warning
-int end_search_thread(SceUID thid);
 
 int end_search_thread(SceUID thid) {
   vita_debug_log("[mDNS] end_search_thread: solicitando parada de hilo %d\n", thid);

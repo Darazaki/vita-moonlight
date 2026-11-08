@@ -9,6 +9,8 @@
 #include "../video/vita.h"
 #include "../debug.h"
 #include "../input/touchabsolute.h"
+#include "../input/keyboardkeys.h"
+#include "ui_keyboard.h"
 
 #include <assert.h>
 #include <stdio.h>
@@ -990,8 +992,6 @@ static int settings_back(void *context) {
 }
 
 // --- OPCIÓN DE LAYOUT DE TECLADO EN UI SETTINGS ---
-#include "../input/keyboardkeys.h"
-#include "ui_keyboard.h"
 
 // --- HOTKEYS MENU (UI) ---
 // Eliminado: hotkeys_menu y referencias, ya que los atajos ahora son fijos
