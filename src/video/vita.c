@@ -450,6 +450,8 @@ static int vita_submit_decode_unit(PDECODE_UNIT decodeUnit) {
 
   picture.size = sizeof(picture);
   picture.frame.pixelType = 0;
+  picture.frame.opt.rgba.alpha = 0xFF;
+  picture.frame.opt.rgba.cscCoefficient = 1;  // SCE_AVCDEC_CSC_COEFFICIENT_ITU601 (limited range)
   picture.frame.framePitch = image_scaling.texture_width;
   picture.frame.frameWidth = image_scaling.texture_width;
   picture.frame.frameHeight = image_scaling.texture_height;
